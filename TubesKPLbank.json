@@ -1,0 +1,18 @@
+[
+  {
+    "NamaBank": "BCA",
+    "Biaya": 1000
+  },
+  {
+    "NamaBank": "BNI",
+    "Biaya": 1000
+  },
+  {
+    "NamaBank": "BRI",
+    "Biaya": 1000
+  },
+  {
+    "NamaBank": "MANDIRI",
+    "Biaya": 1000
+  }
+]
