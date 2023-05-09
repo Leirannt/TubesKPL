@@ -41,7 +41,6 @@ namespace TubesKPL
             string inputs = Console.ReadLine();
             Console.WriteLine(" ");
 
-
             if (inputs == "1")
             {
                 string CaraBayar = getPenjelasan(caraBayar.COD);
