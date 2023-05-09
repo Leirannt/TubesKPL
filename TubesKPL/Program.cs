@@ -22,7 +22,7 @@ namespace TubesKPL
 
         static string getPenjelasan(caraBayar a)
         {
-            string[] metode = { "silahkan menunggu barang sampai ke tangan anda lalu bayar", "pilih bank lalu masukkan 9 digit angka dari nomor rekening", "ctrl + klik pada Link untuk mendapatkan kode QR: " + "https://drive.google.com/file/d/1H4Yfvc_75mjGq_-z0Rf4kHVeCTZP4XnB/view" };
+            string[] metode = { "silahkan menunggu barang sampai ke tangan anda lalu bayar", "pilih bank lalu masukkan 9 digit angka dari nomor rekening", "ctrl + klik pada Link untuk mendapatkan kode QR" };
 
             int indeks = (int)a;
             return metode[indeks];
@@ -56,6 +56,9 @@ namespace TubesKPL
             else if (inputs == "3")
             {
                 string CaraBayar = getPenjelasan(caraBayar.qris);
+                Console.WriteLine("masukkan 3 digit OTP tanpa spasi");
+                string i = Console.ReadLine();
+                Console.WriteLine(qrOTP(i));
                 Console.WriteLine(CaraBayar);
             }
             else
@@ -84,7 +87,20 @@ namespace TubesKPL
             }
         }
 
+        static string qrOTP(string input)
+        {
+            int inputcek = Convert.ToInt32(input);
+
+            if(inputcek > 99 && inputcek < 1000 )
+            {
+                return "https://drive.google.com/file/d/1H4Yfvc_75mjGq_-z0Rf4kHVeCTZP4XnB/view";
+            }
+            return "kode tidak valid";
+        }
+
+
         //---------------------------------------------TEKNIK RUNTIME CONFIGURATION------------------------------------
+
         static void pilihBank()
         {
             
@@ -105,7 +121,7 @@ namespace TubesKPL
             Console.WriteLine("3. BRI");
             Console.WriteLine("4. MANDIRI");
             Console.WriteLine(" ");
-            Console.Write("Masukkan angka dari list bank: ");
+            Console.Write("Pilih bank untuk melihat biaya admin: ");
 
             string i = Console.ReadLine();
 
@@ -116,7 +132,9 @@ namespace TubesKPL
             try
             {
                 int inputcek = Convert.ToInt32(i);
-                while (inputcek <= 4 )
+                
+
+                while (inputcek <= 4)
                 {
                     Console.WriteLine("nama bank : " + listbiaya[inputcek].NamaBank + " | " + "biaya admin: " + listbiaya[inputcek].Biaya);
                     Console.WriteLine(" ");
@@ -162,11 +180,15 @@ namespace TubesKPL
 
         }
     }
+
+
     //-------------------------------------------------------------------------------------------------------------------
 }
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //tester
+
+
 // 
 /*string nomoratm = Console.ReadLine();
                     int a = nomoratm.Length;*/
@@ -180,6 +202,31 @@ namespace TubesKPL
 //error handling
 //try
 //{
+/* 
+ public class pilihbank
+    {
+        public pilihbank() { }
+
+        public string dipilh(int inputcek)
+        {
+            Console.WriteLine(" ");
+            Console.WriteLine("1. BCA");
+            Console.WriteLine("2. BNI");
+            Console.WriteLine("3. BRI");
+            Console.WriteLine("4. MANDIRI");
+            Console.WriteLine(" ");
+            Console.Write("Masukkan angka dari list bank: ");
+
+            
+
+            if (inputcek <= 4 && inputcek >= 0)
+            {
+                return "pembayaran sedang berlangsung";
+            }
+            return "bank tidak terdaftar";
+        }
+    }
+ */
 
 /*bool c = checked(a == 16);
 Console.WriteLine("Terimakasih Pembayaran dan Pengiriman akan segera kami proses");*/
